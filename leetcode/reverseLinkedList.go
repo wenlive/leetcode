@@ -59,6 +59,21 @@ func ReverseWithoutLoop(head *ListNode) *ListNode {
 	return last
 }
 
+var unReverseNode *ListNode
+
+func ReverseN(head *ListNode, n int) *ListNode {
+	// var unReverseNode *ListNode
+	if n == 1 {
+		unReverseNode = head.Next
+		return head
+	}
+
+	last := ReverseN(head.Next, n-1)
+	head.Next.Next = head
+	head.Next = unReverseNode
+	return last
+}
+
 func ReverseBetween(head *ListNode, m int, n int) *ListNode {
 	if head == nil || m >= n {
 		return head
@@ -109,4 +124,12 @@ func ReverseBetweenV2(head *ListNode, m int, n int) *ListNode {
 	pre.Next.Next = cur
 	pre.Next = behind
 	return newHead.Next
+}
+
+func ReverseBetweenWithoutLoop(head *ListNode, m int, n int) *ListNode {
+	if m == 1 {
+		return ReverseN(head, n)
+	}
+	head.Next = ReverseBetweenWithoutLoop(head.Next, m-1, n-1)
+	return head
 }
