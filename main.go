@@ -5,11 +5,7 @@ import (
 	"fmt"
 )
 
-func main() {
-	fmt.Println("hello world")
-	// var nums = []int{1, -1, 0, 4}
-	// fmt.Println(leetcode.ThreeSum(nums))
-
+func TestreverseLinkedList() {
 	// var a *leetcode.ListNode = leetcode.NewLisNode()
 	// leetcode.Cout(a)
 
@@ -31,4 +27,25 @@ func main() {
 
 	// fmt.Println("finished")
 
+}
+
+func Test3Sum() {
+	fmt.Println("hello world")
+	// var nums = []int{1, -1, 0, 4}
+	// fmt.Println(leetcode.ThreeSum(nums))
+}
+
+func Testpalindrome() {
+	var nums = []int{-1, 1, 1, 4}
+	fmt.Println(leetcode.RemoveDuplicates(nums))
+	fmt.Println(nums)
+
+	a := leetcode.NewLisNodeWith([]int{1, 2, 2, 1})
+	leetcode.Cout(a)
+	fmt.Println(leetcode.IsPalindrome(a))
+}
+
+func main() {
+
+	Testpalindrome()
 }
