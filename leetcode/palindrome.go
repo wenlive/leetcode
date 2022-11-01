@@ -40,3 +40,38 @@ func traverse(right *ListNode) bool {
 	left = left.Next
 	return ans
 }
+
+func IsPalindromeV2(head *ListNode) bool {
+	slow := head
+	fast := head
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+	}
+	if fast != nil {
+		slow = slow.Next
+	}
+	left := head
+	right := ReverseToNewLinkedList(head)
+	for right != nil {
+		if right.Val != left.Val {
+			return false
+		}
+		left = left.Next
+		right = right.Next
+	}
+
+	return true
+}
+
+func ReverseToNewLinkedList(head *ListNode) *ListNode {
+	var last *ListNode
+	for head != nil {
+		temp := ListNode{Val: head.Val}
+		head = head.Next
+		temp.Next = last
+		last = &temp
+	}
+
+	return last
+}
