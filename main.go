@@ -35,6 +35,14 @@ func Test3Sum() {
 	// fmt.Println(leetcode.ThreeSum(nums))
 }
 
+func TestBinaryTree() {
+	root := leetcode.NewMaximumBinaryTree([]int{3, 2, 1, 6, 0, 5})
+	res := leetcode.LevelOrder(root)
+	for _, i := range res {
+		fmt.Println(i)
+	}
+}
+
 func Testpalindrome() {
 	// var nums = []int{-1, 1, 1, 4}
 	// fmt.Println(leetcode.RemoveDuplicates(nums))
@@ -52,5 +60,7 @@ func main() {
 
 	// Testpalindrome()
 
-	fmt.Println(leetcode.MaxCharInString("aabbbbcccaabbbbccc"))
+	// fmt.Println(leetcode.MaxCharInString("aabbbbcccaabbbbccc"))
+
+	TestBinaryTree()
 }
